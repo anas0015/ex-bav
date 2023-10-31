@@ -6,6 +6,7 @@ import * as  z  from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import React from "react";
 
 const FormSchema = z.object({
     firmaName: z.string().min(2, {

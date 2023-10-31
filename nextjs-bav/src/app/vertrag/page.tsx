@@ -1,3 +1,4 @@
+import React from "react";
 import FirmaForm from "../components/form/FirmaForm";
 
 const page = () => {
