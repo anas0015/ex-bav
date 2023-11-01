@@ -320,30 +320,30 @@ const PersonenForm = () => {
                     </div>
 
 
-                        <FormField
-                            control={form.control}
-                            name="nationalitaet"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Staatsangehörigkeit</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue="deutsch">
-                                        <FormControl>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Wählen Sie Ihren Staatsangehörigkeit" />
-                                            </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                            <SelectItem value="deutsch">Deutsch</SelectItem>
-                                            <SelectItem value="oesterreichisch">Österreichisch</SelectItem>
-                                            <SelectItem value="schweiz">Schweiz</SelectItem>
+                    <FormField
+                        control={form.control}
+                        name="nationalitaet"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Staatsangehörigkeit</FormLabel>
+                                <Select onValueChange={field.onChange} defaultValue="deutsch">
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Wählen Sie Ihren Staatsangehörigkeit" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        <SelectItem value="deutsch">Deutsch</SelectItem>
+                                        <SelectItem value="oesterreichisch">Österreichisch</SelectItem>
+                                        <SelectItem value="schweiz">Schweiz</SelectItem>
 
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                    
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
 
                     <div className="mx-auto mb-4 my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
                         <h1 className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Sonstiges</h1>
@@ -592,15 +592,15 @@ const PersonenForm = () => {
                         />
                     </div>
 
-              
+
 
                     <div className="flex justify-between">
                         <Link href={"/vertrag"}>
                             <Button type="submit" >Zurück</Button>
                         </Link>
-                        
+
                         <Button type="submit" >Vertrag Abschließen</Button>
-                        
+
                     </div>
                 </form>
             </Form>
