@@ -8,7 +8,7 @@ export default function Home() {
     <>
     <h1 className="mb-8 text-6xl">Betriebliche Altersvorsorge</h1>
       <Link className={buttonVariants({size:"lg"})} href="/vertrag">
-        <div className="text-2xl">Neuer Antrag</div>
+        <div className="text-2xl mb-3">Neuer Antrag</div>
       </Link>
     </>
      )
