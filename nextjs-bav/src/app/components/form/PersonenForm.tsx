@@ -14,6 +14,15 @@ import { Calendar } from "../ui/calendar";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
+import React, { useState } from "react";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../ui/accordion";
+
+
+
+
+
+
+
 
 const FormSchema = z.object({
     vorname: z.string().min(2, {
@@ -132,6 +141,47 @@ const FormSchema = z.object({
     }),
 })
 
+type FormData = {
+    vorname: string;
+    nachname: string;
+    dob: string;
+    geschlecht: string;
+    strasse: string;
+    hausnummer: string;
+    plz: string;
+    ort: string;
+    vertragsnummer: string;
+    abschlussstelle: string;
+    betreuungsstelle: string;
+    inkassostelle: string;
+    zahlweg: string;
+    sonstigevereinbarug: string;
+    durchfuehrungsweg: string;
+    tarif: string;
+    tarifstufe: string;
+    BReinschluss: string;
+    index: string;
+    indexbeteiligung: string;
+    beitragsdynamik: string;
+    ueberschussverwendung: string;
+    rentenbeginnModus: string;
+    endalterHauptversicherung: string;
+    BRendalter: string;
+    BRbedingungen: string;
+    rentenGarantieZeit: string;
+    gesamtBeitrag: string;
+    beruf: string;
+    beitragSumme: string;
+    arbeitgeberzuschuss: string;
+    alterBeiVersicherungsbeginn: string;
+    arbeitgeberbeitrag: string;
+    nationalitaet: {
+        nationalitaet: string;
+    };
+    versicherungsbeginn: Date;
+    entgeltUmwandlung: Date;
+    rentenBeginn: Date;
+};
 
 
 function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -140,16 +190,25 @@ function onSubmit(data: z.infer<typeof FormSchema>) {
 
 const PersonenForm = () => {
 
+    const [accordions, setAccordions] = useState([{ id: 1, isOpen: false }]);
+
+    const addAccordion = () => {
+        const newAccordionId = Math.max(...accordions.map((accordion) => accordion.id)) + 1;
+        const newAccorions = [...accordions, { id: newAccordionId, isOpen: true }];
+        setAccordions(newAccorions);
+    }
+
+
+
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
     });
 
     return (
-        <div className="mt-4 p-6 bg-white border w-11/12 h-max border-gray-200 rounded-lg shadow-2xl">
+        <div className="mt-4 p-6 bg-white border w-full h-max border-gray-200 rounded-lg shadow-2xl">
             <div className="mx-auto mb-4 my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
                 <h1 className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Persönliche Inofrmationen</h1>
             </div>
-
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
 
@@ -554,7 +613,6 @@ const PersonenForm = () => {
                         />
                     </div>
 
-
                     <div className="grid grid-cols-2 gap-2">
                         <FormField
                             control={form.control}
@@ -592,18 +650,15 @@ const PersonenForm = () => {
                         />
                     </div>
 
-
-
                     <div className="flex justify-between">
                         <Link href={"/vertrag"}>
                             <Button type="submit" >Zurück</Button>
                         </Link>
 
                         <Button type="submit" >Vertrag Abschließen</Button>
-
                     </div>
                 </form>
-            </Form>
+            </Form>                      
         </div>
     )
 };
