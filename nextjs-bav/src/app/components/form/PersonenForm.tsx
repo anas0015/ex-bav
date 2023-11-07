@@ -141,62 +141,15 @@ const FormSchema = z.object({
     }),
 })
 
-type FormData = {
-    vorname: string;
-    nachname: string;
-    dob: string;
-    geschlecht: string;
-    strasse: string;
-    hausnummer: string;
-    plz: string;
-    ort: string;
-    vertragsnummer: string;
-    abschlussstelle: string;
-    betreuungsstelle: string;
-    inkassostelle: string;
-    zahlweg: string;
-    sonstigevereinbarug: string;
-    durchfuehrungsweg: string;
-    tarif: string;
-    tarifstufe: string;
-    BReinschluss: string;
-    index: string;
-    indexbeteiligung: string;
-    beitragsdynamik: string;
-    ueberschussverwendung: string;
-    rentenbeginnModus: string;
-    endalterHauptversicherung: string;
-    BRendalter: string;
-    BRbedingungen: string;
-    rentenGarantieZeit: string;
-    gesamtBeitrag: string;
-    beruf: string;
-    beitragSumme: string;
-    arbeitgeberzuschuss: string;
-    alterBeiVersicherungsbeginn: string;
-    arbeitgeberbeitrag: string;
-    nationalitaet: {
-        nationalitaet: string;
-    };
-    versicherungsbeginn: Date;
-    entgeltUmwandlung: Date;
-    rentenBeginn: Date;
-};
 
 
 function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log("submited")
 }
 
-const PersonenForm = () => {
+const PersonenForm = ({ id, accordions, setAccordions, closeAccordion }: { id: number, accordions: Array<any>, setAccordions: Function, closeAccordion:Function }) => {
 
-    const [accordions, setAccordions] = useState([{ id: 1, isOpen: false }]);
-
-    const addAccordion = () => {
-        const newAccordionId = Math.max(...accordions.map((accordion) => accordion.id)) + 1;
-        const newAccorions = [...accordions, { id: newAccordionId, isOpen: true }];
-        setAccordions(newAccorions);
-    }
+    
 
 
 
@@ -651,14 +604,11 @@ const PersonenForm = () => {
                     </div>
 
                     <div className="flex justify-between">
-                        <Link href={"/vertrag"}>
-                            <Button type="submit" >Zurück</Button>
-                        </Link>
+                        <Button type="button" variant="destructive" onClick={() => closeAccordion(id)}>Schließen</Button>
 
-                        <Button type="submit" >Vertrag Abschließen</Button>
                     </div>
                 </form>
-            </Form>                      
+            </Form>
         </div>
     )
 };
