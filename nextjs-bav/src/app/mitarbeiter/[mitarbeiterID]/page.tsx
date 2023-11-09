@@ -1,18 +1,7 @@
 "use client";
-import PersonenForm from 
+import PersonenForm from "@/components/form/PersonenForm";
 
-"@/components/form/PersonenForm";
-import { useState } from "react";
-
-export default function Page({ params }: { params: { mitarbeiterID: string } }) {
-    
-    const [accordions, setAccordions] = useState([
-        { id: 1, isOpen: false, formKey: 1 },
-    ]);
-
-  
-
-
+export default function Page({ params }: { params: { mitarbeiterID: string } }) {  
     return (
     <>
            <div className="bg-white top-0 mt-6 p-6  border w-11/12  border-gray-200 rounded-lg shadow-2xl flex flex-col items-center"> 
