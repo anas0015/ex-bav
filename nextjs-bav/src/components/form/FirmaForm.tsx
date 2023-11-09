@@ -112,7 +112,7 @@ const FirmaForm = () => {
     return (
         <div className="mt-4 p-6 bg-white border w-11/12 h-max border-gray-200 rounded-lg shadow-2xl">
             <div className="mx-auto mb-4 my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
-                <h1 className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Firma</h1>
+                <h1 className=" mb-2 text-2xl font-bold tracking-tight text-primary dark:text-white">Firma</h1>
             </div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
@@ -188,7 +188,7 @@ const FirmaForm = () => {
 
                     <div
                         className="mx-auto mb-4 my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
-                        <h1 className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Vertrag</h1>
+                        <h1 className=" mb-2 text-2xl font-bold tracking-tight text-primary dark:text-white">Vertrag</h1>
                     </div>
 
                     <FormField
@@ -277,7 +277,7 @@ const FirmaForm = () => {
 
                     <div
                         className="mx-auto mb-4 my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
-                        <h1 className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tarif</h1>
+                        <h1 className=" mb-2 text-2xl font-bold tracking-tight text-primary dark:text-white">Tarif</h1>
                     </div>
 
                     <FormField
@@ -516,7 +516,7 @@ const FirmaForm = () => {
                         )}
                     />
                     <div className="flex justify-end">
-                        <Link href={"/person"}>
+                        <Link href={"/mitarbeiter"}>
                             <Button type="submit" >Next</Button>
                         </Link>
                     </div>

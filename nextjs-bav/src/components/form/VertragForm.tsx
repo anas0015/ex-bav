@@ -1,49 +1,49 @@
 'use client';
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import {  FormProvider, useForm } from "react-hook-form";
-import * as  z  from "zod";
+import { FormProvider, useForm } from "react-hook-form";
+import * as  z from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
 const FormSchema = z.object({
-    vertragsnummer: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
-    }),
-      abschlussstelle: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-      }),
-      betreuungsstelle: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-      }),
-      inkassostelle: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-      }),
-      zahlweg: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-      }),
-      sonstigevereinbarug: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-      }),
-  })
+  vertragsnummer: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  abschlussstelle: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  betreuungsstelle: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  inkassostelle: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  zahlweg: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  sonstigevereinbarug: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+})
 
 const VertragForm = () => {
-    const form = useForm<z.infer<typeof FormSchema>>({
-        resolver: zodResolver(FormSchema),
-    });
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
 
-return(
+  return (
     <>
-    <div className="mx-auto flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
-      <p className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Vertrag</p>
-    </div>
+      <div className="mx-auto flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
+        <p className=" mb-2 text-2xl font-bold tracking-tight text-primary dark:text-white">Vertrag</p>
+      </div>
 
 
 
-<FormProvider {...form}>
-    <form className="w-full space-y-6">
-    <FormField
+      <FormProvider {...form}>
+        <form className="w-full space-y-6">
+          <FormField
             control={form.control}
             name="vertragsnummer"
             render={({ field }) => (
@@ -57,7 +57,7 @@ return(
             )}
           />
 
-<FormField
+          <FormField
             control={form.control}
             name="abschlussstelle"
             render={({ field }) => (
@@ -71,7 +71,7 @@ return(
             )}
           />
 
-<FormField
+          <FormField
             control={form.control}
             name="betreuungsstelle"
             render={({ field }) => (
@@ -85,7 +85,7 @@ return(
             )}
           />
 
-<FormField
+          <FormField
             control={form.control}
             name="inkassostelle"
             render={({ field }) => (
@@ -99,7 +99,7 @@ return(
             )}
           />
 
-<FormField
+          <FormField
             control={form.control}
             name="zahlweg"
             render={({ field }) => (
@@ -113,7 +113,7 @@ return(
             )}
           />
 
-<FormField
+          <FormField
             control={form.control}
             name="sonstigevereinbarug"
             render={({ field }) => (
@@ -127,9 +127,10 @@ return(
             )}
           />
 
-    </form>
-</FormProvider>
+        </form>
+      </FormProvider>
 
-</>
-)}
+    </>
+  )
+}
 export default VertragForm
