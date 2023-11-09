@@ -8,21 +8,14 @@ import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as  z from "zod";
-import Link from "next/link";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Calendar } from "../ui/calendar";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import React, { useState } from "react";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../ui/accordion";
-
-
-
-
-
-
-
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const FormSchema = z.object({
     vorname: z.string().min(2, {
@@ -142,14 +135,11 @@ const FormSchema = z.object({
 })
 
 
-
 function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log("submited")
 }
 
-const PersonenForm = ({ id, accordions, setAccordions, closeAccordion }: { id: number, accordions: Array<any>, setAccordions: Function, closeAccordion:Function }) => {
-
-    
+const PersonenForm = ({ id, accordions }: { id: number, accordions: Array<any>}) => {
 
 
 
@@ -160,7 +150,7 @@ const PersonenForm = ({ id, accordions, setAccordions, closeAccordion }: { id: n
     return (
         <div className="mt-4 p-6 bg-white border w-full h-max border-gray-200 rounded-lg shadow-2xl">
             <div className="mx-auto mb-4 my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
-                <h1 className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Persönliche Inofrmationen</h1>
+                <h1 className=" mb-2 text-2xl font-bold tracking-tight text-primary dark:text-white">Persönliche Inofrmationen</h1>
             </div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
@@ -358,7 +348,7 @@ const PersonenForm = ({ id, accordions, setAccordions, closeAccordion }: { id: n
 
 
                     <div className="mx-auto mb-4 my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
-                        <h1 className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Sonstiges</h1>
+                        <h1 className=" mb-2 text-2xl font-bold tracking-tight text-primary dark:text-white">Sonstiges</h1>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2">
@@ -604,7 +594,14 @@ const PersonenForm = ({ id, accordions, setAccordions, closeAccordion }: { id: n
                     </div>
 
                     <div className="flex justify-between">
-                        <Button type="button" variant="destructive" onClick={() => closeAccordion(id)}>Schließen</Button>
+                        <Link href={"/mitarbeiter"}>
+                        <Button type="button" variant="destructive">Zurück</Button>
+                        </Link>
+                       
+                       <Link href={'mitarbeiter/' + id.toString()}>
+                         <Button type="button">Bearbeiten</Button>
+                       </Link>
+
 
                     </div>
                 </form>

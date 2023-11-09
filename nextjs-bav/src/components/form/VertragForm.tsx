@@ -36,7 +36,7 @@ const VertragForm = () => {
   return (
     <>
       <div className="mx-auto flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400">
-        <p className=" mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Vertrag</p>
+        <p className=" mb-2 text-2xl font-bold tracking-tight text-primary dark:text-white">Vertrag</p>
       </div>
 
 

@@ -12,10 +12,9 @@ export default function MasterDetails() {
         { id: 1, isOpen: false, formKey: 1 },
     ]);
 
-
+   
 
     const addAccordion = () => {
-        console.log("add Funktionert!!!")
         const newAccordionId = Math.max(...accordions.map((accordion) => accordion.id)) + 1;
         const newFormKey = Math.max(...accordions.map((accordion) => accordion.formKey)) + 1;
         const newAccorions = [...accordions, { id: newAccordionId, isOpen: true, formKey: newFormKey },
@@ -23,29 +22,8 @@ export default function MasterDetails() {
         setAccordions(newAccorions);
     }
 
-    const deleteAccodion = (idToDelete: number) => {
-        const updatedAccordions = accordions.filter((accordion) => accordion.id !== idToDelete);
-        setAccordions(updatedAccordions);
-    };
-
-    const closeAccordion = (idToClose: number) => {
-        console.log("Das Funktionier!!")
-        console.log("ID to close = " + idToClose);
 
 
-        const updatedAccordions = accordions.map((accordion) => {
-            console.log("accordion.id = " + accordion.id);
-
-            if (accordion.id === idToClose) {
-                console.log("accordion ID === ID to Close")
-                return { ...accordion, isOpen: false };
-            } else {
-                console.log("accordion ID != ID to close!!")
-                return accordion;
-            }
-        });
-        setAccordions(updatedAccordions);
-    };
 
     return (
         <>
@@ -58,7 +36,7 @@ export default function MasterDetails() {
                             Mitarbeiter {accordion.id}
                         </AccordionTrigger>
                         <AccordionContent>
-                            <PersonenForm id={accordion.id} accordions={accordions} setAccordions={setAccordions} closeAccordion={closeAccordion} />
+                            <PersonenForm id={accordion.id} accordions={accordions} setAccordions={setAccordions} />
                         </AccordionContent>
                     </AccordionItem>
 
